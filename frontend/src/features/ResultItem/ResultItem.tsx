@@ -1,14 +1,23 @@
 import styled from '@emotion/styled';
 import React from 'react'
 
-const ResultItem : React.FC = () => {
+export interface ResultItemProps {
+  productURL: string,
+  imageURL: string,
+  brand: string,
+  productName: string,
+  price: number
+}
+
+
+const ResultItem : React.FC<ResultItemProps> = ({productURL, imageURL, brand, productName, price}) => {
   return (
-    <a href='https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000151952&dispCatNo=100000100010008&trackingCd=Cat100000100010008_MID&curation&egcode&rccode&egrankcode'>
+    <a href={productURL} target='_blank'>
       <ResultItemWrap>
-        <img src='https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015195203ko.jpg?l=ko'></img>
-        <div className='brand'>더랩바이블랑두</div>
-        <div className='product'>더랩바이블랑두 올리고 히알루론산 5000토너 500ml</div>
-        <div className='price'>34,000원</div>
+        <img src={imageURL}></img>
+        <div className='brand'>{brand}</div>
+        <div className='product'>{productName}</div>
+        <div className='price'>{price}원</div>
       </ResultItemWrap>
     </a>
     
